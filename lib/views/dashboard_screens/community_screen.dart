@@ -111,8 +111,8 @@ class CommunityScreen extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        top: 14,
-                        right: 16,
+                        top: 1.4.h,
+                        right: 3.5.w,
                         child: Container(
                           height: 0.8.h,
                           width: 2.w,

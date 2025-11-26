@@ -12,6 +12,7 @@ import 'package:life_track/views/menu_screens/ask_weight_screen.dart';
 import 'package:life_track/views/menu_screens/edit_age.dart';
 import 'package:life_track/views/menu_screens/edit_contact.dart';
 import 'package:life_track/views/menu_screens/edit_username.dart';
+import 'package:life_track/views/menu_screens/event_detail_screen.dart';
 import 'package:life_track/views/menu_screens/notification_screen.dart';
 import 'package:life_track/views/menu_screens/preferred_screen.dart';
 import 'package:life_track/views/menu_screens/profile_setting.dart';
@@ -53,6 +54,7 @@ class AppRoutes {
     GetPage(name: '/username', page: () => EditUsername()),
     GetPage(name: '/age', page: () => EditAge()),
     GetPage(name: '/contact', page: () => EditContact()),
+    //GetPage(name: '/eventdetail', page: () => EventDetailScreen()),
     //GetPage(name: '/activitymenu', page: () => ActivityMenu()),
     // GetPage(name: '/forgot', page: () => ForgotPassScreen()),
     // GetPage(name: '/reset', page: () => ResetPassScreen()),

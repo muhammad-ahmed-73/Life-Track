@@ -9,6 +9,7 @@ import 'package:life_track/widgets/custom_events.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../constants/constants_widgets.dart';
+import '../menu_screens/event_detail_screen.dart';
 
 class EventsScreen extends StatelessWidget {
   EventsScreen({super.key});
@@ -104,6 +105,9 @@ class EventsScreen extends StatelessWidget {
                           item['location']!,
                           item['date']!,
                           item['month']!,
+                          ontap: (){
+                          Get.to(() => EventDetailScreen(path: item['path']!, title: item['title']!,));
+                        },
                         );
                       },
                     ),
@@ -192,7 +196,7 @@ class EventsScreen extends StatelessWidget {
                           // Status dot
                           Positioned(
                             top: 5.h, // adjust as needed
-                            right: 13, // adjust as needed
+                            right: 3.w, // adjust as needed
                             child: Container(
                               height: 0.7.h,
                               width: 2.w,

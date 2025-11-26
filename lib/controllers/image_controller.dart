@@ -56,6 +56,8 @@ class BgImages {
   AssetImage('assets/images/background/edit_username_bg.png');
   static const AssetImage edit_contact =
   AssetImage('assets/images/background/contact_details_bg.png');
+  static const AssetImage event_detail =
+  AssetImage('assets/images/background/event_detail_bg.png');
 
 }
 
@@ -92,6 +94,7 @@ class ImageController extends GetxController {
     BgImages.rules,
     BgImages.edit_username,
     BgImages.edit_contact,
+    BgImages.event_detail,
   ];
 
   /// Async method to preload images
@@ -131,4 +134,5 @@ class ImageController extends GetxController {
   AssetImage get rules => BgImages.rules;
   AssetImage get edit_username => BgImages.edit_username;
   AssetImage get edit_contact => BgImages.edit_contact;
+  AssetImage get event_detail => BgImages.event_detail;
 }

@@ -73,7 +73,7 @@ class DashboardScreen extends StatelessWidget {
             filter: ImageFilter.blur(sigmaX:15, sigmaY: 15),
             child: Container(
               height: 10.5.h, // smaller, safer height
-              padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 1.h, bottom: 2.6.h), // remove vertical padding
+              padding: EdgeInsets.only(left: 2.w, right: 2.w, top: 1.5.h, bottom: 2.h), // remove vertical padding
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.2), // glossy effect
               ),

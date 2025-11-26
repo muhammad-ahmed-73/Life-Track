@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:life_track/views/menu_screens/event_detail_screen.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/color_constants.dart';
 import '../constants/constants_widgets.dart';
 
-Widget customEvents(String path, String title, String desc, String location, String date, String month){
+Widget customEvents(String path, String title, String desc, String location, String date, String month,{VoidCallback? ontap}){
   return Container(
     margin: EdgeInsets.only(bottom: 1.25.h),
     child: ClipRRect(
@@ -82,22 +84,27 @@ Widget customEvents(String path, String title, String desc, String location, Str
                       fontSize: 14.sp,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                    maxLines: null
+                    maxLines: null,
+                    softWrap: true,
+                    overFlow: TextOverflow.visible
                   ),
                 ),
                 SizedBox(height: 0.8.h,),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 0.6.h),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(25.sp),
-                  ),
-                  child: customText(
-                    text: 'Join Now',
-                    textAlign: TextAlign.center,
-                    color: Colors.white,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
+                InkWell(
+                  onTap: ontap,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 0.6.h),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(25.sp),
+                    ),
+                    child: customText(
+                      text: 'Join Now',
+                      textAlign: TextAlign.center,
+                      color: Colors.white,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],

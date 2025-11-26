@@ -107,8 +107,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                       // Status dot
                       Positioned(
-                        top: 14, // adjust as needed
-                        right: 16, // adjust as needed
+                        top: 1.35.h, // adjust as needed
+                        right: 3.5.w, // adjust as needed
                         child: Container(
                           height: 0.8.h,
                           width: 2.w,
