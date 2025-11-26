@@ -10,7 +10,7 @@ Widget customPinField({Function(String)? onCompleted, BuildContext? context}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      SizedBox(height: 1.h),
+      //SizedBox(height: 1.h),
       PinCodeTextField(
         appContext: context!, // provide your context
         length: 4,

@@ -18,6 +18,9 @@ dependencies:
   font_awesome_flutter: ^10.12.0
   pin_code_fields: ^8.0.1
   flutter_image_compress: ^2.4.0
+  charts_flutter: ^0.12.0
+  fl_chart: ^1.1.1
+  country_picker: ^2.0.27
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +38,9 @@ flutter:
     - assets/images/icons/
     - assets/images/background/
     - assets/images/preferred/
+    - assets/images/navbar_icons/
+    - assets/images/png/activities/
+    - assets/images/png/activities/area_sports/
 
   fonts:
     - family: redditsans

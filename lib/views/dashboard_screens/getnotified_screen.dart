@@ -106,17 +106,22 @@ class GetnotifiedScreen extends StatelessWidget {
                               subtitle:
                               'Hit milestones and unlock exclusive rewards. Earn points, level up, and claim your perks.',
                             ),
-                            SizedBox(height: 4.5.h,),
-                            customButton('Enable', ontap: () => Get.toNamed('/getnotified'), path: 'assets/images/icons/notify.png',isImage: true),
+                            SizedBox(height: 8.5.h,),
+                            customButton('Enable', ontap: () => Get.toNamed('/dashboard'), path: 'assets/images/icons/notify.png',isImage: true),
                             SizedBox(height: 2.h,),
 
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                customText(
-                                    text: 'Not Now',
-                                    color: Colors.white,
-                                    fontSize: 16.5.sp
+                                InkWell(
+                                  onTap: (){
+                                    Get.toNamed('/dashboard');
+                                  },
+                                  child: customText(
+                                      text: 'Not Now',
+                                      color: Colors.white,
+                                      fontSize: 16.5.sp
+                                  ),
                                 )
                               ],
                             )

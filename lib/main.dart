@@ -4,6 +4,7 @@ import 'package:life_track/utils/App_Routing.dart';
 import 'package:life_track/utils/init_binding.dart';
 import 'package:sizer/sizer.dart';
 
+import 'controllers/dashboard_controller.dart';
 import 'controllers/image_controller.dart';
 import 'controllers/onboarding_controller.dart';
 
@@ -11,6 +12,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(ImageController());
   Get.put(OnboardingController());
+  Get.lazyPut(() => DashboardController(), fenix: true);
+
 
   runApp(const MyApp());
 }

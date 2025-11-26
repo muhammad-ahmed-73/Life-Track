@@ -15,28 +15,34 @@ class OnboardingController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    _init();
+
     onboardingData = [
       {
-        'image': imageController.onboarding1Bg, // preloaded AssetImage
+        'image': imageController.onboarding1Bg,
         'title': 'Biking on Mountain',
         'desc': 'Log in / Sign up to get interested rewards on your hard works',
       },
       {
-        'image': imageController.onboarding2Bg, // preloaded AssetImage
+        'image': imageController.onboarding2Bg,
         'title': 'Kayaking surfing',
         'desc': 'Log in / Sign up to get interested rewards on your hard works',
       },
     ];
   }
 
+
+// THIS IS THE FIX
+  @override
+  void onReady() {
+    super.onReady();
+    _init();     // now context is available!
+  }
+
   Future<void> _init() async {
     final context = Get.context!;
-    // Preload all images
     await imageController.preloadImages(context);
-
-
   }
+
 
   void onPageChanged(int index) {
     currentPage.value = index;

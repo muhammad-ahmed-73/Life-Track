@@ -56,6 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 23.5.sp,
                     fontWeight: FontWeight.w700,
+
                   ),
                   SizedBox(height: 0.7.h),
                   customText(
@@ -64,6 +65,9 @@ class OnboardingScreen extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 15.5.sp,
                     fontWeight: FontWeight.w400,
+                    maxLines: null,
+                    softWrap: true,
+                    overFlow: TextOverflow.visible
                   ),
                   SizedBox(height: 4.h),
                   // Only this part depends on currentPage
@@ -77,17 +81,31 @@ class OnboardingScreen extends StatelessWidget {
                         if (!isLastPage)
                           InkWell(
                             onTap: onboardingController.nextPage,
-                            child: Image.asset(
-                              'assets/images/icons/arrow_down.png',
-                              width: 5.w,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+                              decoration: BoxDecoration(
+                                color: Colors.grey.withValues(alpha: 0.01),
+                                shape: BoxShape.circle
+                              ),
+                              child: Image.asset(
+                                'assets/images/icons/arrow_down.png',
+                                width: 5.w,
+                              ),
                             ),
                           )
                         else
                           InkWell(
                             onTap: onboardingController.redirectToSignup,
-                            child: Image.asset(
-                              'assets/images/icons/arrow_down.png',
-                              width: 5.w,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.withValues(alpha: 0.01),
+                                  shape: BoxShape.circle
+                              ),
+                              child: Image.asset(
+                                'assets/images/icons/arrow_down.png',
+                                width: 5.w,
+                              ),
                             ),
                           )
                       ],

@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:life_track/controllers/image_controller.dart';
+import 'package:life_track/controllers/preferred_controller.dart';
 import 'package:life_track/widgets/custom_button.dart';
 import 'package:sizer/sizer.dart';
 
@@ -12,20 +15,7 @@ class PreferredsprotsScreen extends StatelessWidget {
   PreferredsprotsScreen({super.key});
 
   final ImageController imageController = Get.find<ImageController>();
-  List<Map<String, String>> optionsData = [
-    {'image': 'assets/images/preferred/Bicycle.png', 'label': 'Biking'},
-    {'image': 'assets/images/preferred/Bicycle1.png', 'label': 'Biking - Off Road'},
-    {'image': 'assets/images/preferred/Swimmer.png', 'label': 'Swimming'},
-    {'image': 'assets/images/preferred/Paddle surf.png', 'label': 'Paddle Boarding'},
-    {'image': 'assets/images/preferred/Windsurfing.png', 'label': 'Wind Surfing'},
-    {'image': 'assets/images/preferred/Kitesurf.png', 'label': 'Kite Boarding'},
-    {'image': 'assets/images/preferred/Kayak.png', 'label': 'Kayaking'},
-    {'image': 'assets/images/preferred/Run.png', 'label': 'Running'},
-    {'image': 'assets/images/preferred/Snowboard.png', 'label': 'Cross Country Skiing'},
-    // Add more as needed
-  ];
-
-
+  final PreferredController preferredController = Get.put(PreferredController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +54,8 @@ class PreferredsprotsScreen extends StatelessWidget {
               Wrap(
                 spacing: 2.w,
                 runSpacing: 1.h,
-                children: List.generate(optionsData.length, (index){
-                  return options(optionsData[index]['image']!, optionsData[index]['label']!);
+                children: List.generate(preferredController.optionsData.length, (index){
+                  return options(preferredController.optionsData[index]['image']!, preferredController.optionsData[index]['label']!);
                 }),
               ),
               SizedBox(height: 7.h,),
@@ -89,10 +79,15 @@ class PreferredsprotsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  customText(
-                    text: 'Skip',
-                    color: Colors.white,
-                    fontSize: 16.5.sp
+                  InkWell(
+                    onTap: (){
+                      Get.toNamed('/dashboard');
+                    },
+                    child: customText(
+                      text: 'Skip',
+                      color: Colors.white,
+                      fontSize: 16.5.sp
+                    ),
                   )
                 ],
               )
@@ -103,24 +98,30 @@ class PreferredsprotsScreen extends StatelessWidget {
     );
   }
 }
-Widget options(String path, String title){
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.6.h),
-    decoration: BoxDecoration(
-      color: Colors.white.withValues(alpha: 0.2),
-      borderRadius: BorderRadius.circular(25.sp)
-    ),
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Image.asset(path, width: 6.5.w,),
-        SizedBox(width: 2.w),
-        customText(
-          text: title,
-          color: Colors.white,
-          fontSize: 16.sp
-        )
-      ],
+Widget options(String path, String title) {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(25.sp),
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.6.h),
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.2),
+          borderRadius: BorderRadius.circular(25.sp),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(path, width: 6.5.w),
+            SizedBox(width: 2.w),
+            customText(
+              text: title,
+              color: Colors.white,
+              fontSize: 16.sp,
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }

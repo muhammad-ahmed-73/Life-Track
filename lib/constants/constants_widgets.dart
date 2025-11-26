@@ -17,6 +17,7 @@ Widget customText({
   int? maxLines,
   double? height,
   double? decorationThickness,
+  bool? softWrap,
 }) {
   return Text(
     text ?? '',
@@ -24,6 +25,7 @@ Widget customText({
     textDirection: textDirection,
     maxLines: maxLines,
     overflow: overFlow,
+    softWrap: softWrap ?? false,
     style: TextStyle(
       fontFamily: "redditsans",
       color: color,
